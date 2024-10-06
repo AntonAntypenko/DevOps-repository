@@ -16,7 +16,7 @@ namespace Lab_1.Implementations
 			return a + b;
 		}
 
-		// Метод для віднімання одного числа від іншого
+		// Метод для віднімання одного числа від іншого 1
 		public double Subtract(double a, double b)
 		{
 			return a - b;
