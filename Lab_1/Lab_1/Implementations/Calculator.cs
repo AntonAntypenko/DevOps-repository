@@ -10,7 +10,7 @@ namespace Lab_1.Implementations
 	// Клас, що реалізує інтерфейс ICalculator і виконує арифметичні операції.
 	public class Calculator : ICalculator
 	{
-		// Метод для додавання двох чисел
+		// Метод для додавання двох чисел 1
 		public double Add(double a, double b)
 		{
 			return a + b;
