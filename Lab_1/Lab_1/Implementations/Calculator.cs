@@ -31,6 +31,10 @@ namespace Lab_1.Implementations
 		// Метод для ділення одного числа на інше з перевіркою ділення на нуль
 		public double Divide(double a, double b)
 		{
+			if (b == 0)
+			{
+				throw new DivideByZeroException("Дiлення на нуль неможливе.");
+			}
 			return a / b;
 		}
 	}
