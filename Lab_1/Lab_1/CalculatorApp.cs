@@ -25,23 +25,33 @@ namespace Lab_1
 			while (true)
 			{
 				// Отримуємо числа від користувача
-				double a = _userInteraction.GetInput("Введіть перше число: ");
-				double b = _userInteraction.GetInput("Введіть друге число: ");
+				double a = _userInteraction.GetInput("Введiть перше число: ");
+				double b = _userInteraction.GetInput("Введiть друге число: ");
 
 				// Обираємо операцію
 				string operation = _userInteraction.SelectOperation();
 
-
-				// Виконуємо обрану операцію та виводимо результат
-				double result = operation switch
+				try
 				{
-					"Add" => _calculator.Add(a, b),
-					"Subtract" => _calculator.Subtract(a, b),
-					"Multiply" => _calculator.Multiply(a, b),
-					"Divide" => _calculator.Divide(a, b),
-					_ => throw new InvalidOperationException("Невідома операція")
-				};
-				_userInteraction.ShowResult($"Результат: {result}");
+					// Виконуємо обрану операцію та виводимо результат
+					double result = operation switch
+					{
+						"Add" => _calculator.Add(a, b),
+						"Subtract" => _calculator.Subtract(a, b),
+						"Multiply" => _calculator.Multiply(a, b),
+						"Divide" => _calculator.Divide(a, b),
+						_ => throw new InvalidOperationException("Невiдома операцiя")
+					};
+					_userInteraction.ShowResult($"Результат: {result}");
+				}
+				catch (DivideByZeroException ex)
+				{
+					_userInteraction.ShowResult($"Помилка: {ex.Message}");
+				}
+				catch (InvalidOperationException ex)
+				{
+					_userInteraction.ShowResult($"Помилка: {ex.Message}");
+				}
 
 
 				// Запитати у користувача, чи хоче він продовжити
